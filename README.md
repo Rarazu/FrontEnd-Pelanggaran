@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Backend to Frontend 
+### at Frontend
+```
+npm install axios
+```
+### at Backend
+```
+npm install cors
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
