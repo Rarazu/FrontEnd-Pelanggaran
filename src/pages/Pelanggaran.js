@@ -56,7 +56,7 @@ export default function Pelanggaran() {
                 setPelanggaran(response.data)
 
                 /**call showToast */
-                showToast(`Data pelanggaran berhasil dimuat`)
+                // showToast(`Data pelanggaran berhasil dimuat`)
             })
             .catch(error => console.log(error))
     }
@@ -103,7 +103,35 @@ export default function Pelanggaran() {
             })
             .catch(error => console.log(error))
         } else if (action === 'edit') {
-            
+            let endpoint = `http://localhost:8000/pelanggaran/${idPelanggaran}`
+            let request = {
+                nama_pelanggaran: namaPelanggaran,
+                poin : poin
+            }
+
+            /** sending data untuk update data pelanggaran */
+            axios.put(endpoint, request, authorization)
+            .then(response => {
+                showToast(response.data.message)
+                /** refresh data */
+                getData()
+            })
+            .catch(error => console.log(error))
+        }
+    }
+
+    let deleteData = item => {
+        if (window.confirm(`Are you sure want to delete?`)) {
+            let endpoint = `http://localhost:8000/pelanggaran/${item.id_pelanggaran}`
+
+            // sending data
+            axios.delete(endpoint, authorization)
+            .then(response => {
+                showToast(response.data.message)
+                /** refresh data */
+                getData()
+            })
+            .catch(error => console.log(error))
         }
     }
 
@@ -172,7 +200,8 @@ export default function Pelanggaran() {
                                             onClick={() => editData(item)}>
                                                 <span className="fa fa-edit"></span> Edit
                                             </button>
-                                            <button className="btn btn-sm btn-danger mx-1">
+                                            <button className="btn btn-sm btn-danger mx-1"
+                                            onClick={() => deleteData(item)}>
                                                 <span className="fa fa-trash"></span> Delete
                                             </button>  
                                     </div>
@@ -193,7 +222,7 @@ export default function Pelanggaran() {
                         <div className="modal-dialog modal-md">
                             <div className="modal-content">
                                 <div className="modal-header" style={{background: `teal`}}>
-                                    <h4 style={{color: `lightblue`}}>
+                                    <h4 style={{color: `lightcyan`}}>
                                         Add Pelanggaran
                                     </h4>
                                 </div>

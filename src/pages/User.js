@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Toast } from "bootstrap";
+import { Modal } from "bootstrap";
 
 export default function User() {
     let [user, setUser] = useState([])
@@ -38,15 +40,15 @@ export default function User() {
                         {user.map(item => (
                             <li className="list-group-item">
                                 <div className="row">
-                                    <div className="col-lg-3">
+                                    <div className="col-lg-2">
                                         <small className="fst-italic" style={{ color: `teal` }}>
-                                            Id
+                                            Id User
                                         </small>
                                         <h5>{item.id_user}</h5>
                                     </div>
-                                    <div className="col-lg-5">
+                                    <div className="col-lg-4">
                                         <small className="fst-italic" style={{ color: `teal` }}>
-                                            Nama
+                                            Nama User
                                         </small>
                                         <h5>{item.nama_user}</h5>
                                     </div>
@@ -56,10 +58,29 @@ export default function User() {
                                         </small>
                                         <h5>{item.username}</h5>
                                     </div>
+                                    <div className="col-lg-2">
+                                        <small className="fst-italic" style={{ color: `teal` }}>
+                                            Option
+                                        </small>
+                                        <br/>
+                                        <button className="btn btn-sm btn-info mx-1">
+                                            <span className="fa fa-edit"></span> Edit
+                                        </button>
+                                        <button className="btn btn-sm btn-danger mx-1">
+                                            <span className="fa fa-trash"></span> Delete
+                                        </button>
+                                    </div>
                                 </div>
                             </li>
                         ))}
                     </ul>
+
+                    {/* button add user */}
+                    <button className="btn btn-sm btn-success my-3">
+                        <span className="fa fa-plus"></span>
+                        Add User
+                    </button>
+
                 </div>
             </div>
         </div>
