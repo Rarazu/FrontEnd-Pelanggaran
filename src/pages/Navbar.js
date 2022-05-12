@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Dropdown} from "bootstrap";
+
 
 export default function Navbar() {
     return (
@@ -7,16 +9,22 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <Link className="nav-link active" to="/login">Login</Link>
+                            <Link className="nav-link active" to="/login">Login</Link>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link active" to="/pelanggaran">Pelanggaran</Link>
+                            <Link className="nav-link active" to="/pelanggaran">Pelanggaran</Link>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link active" to="/user">User</Link>
+                            <Link className="nav-link active" to="/user">User</Link>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link active" to="/siswa">Siswa</Link>
+                            <Link className="nav-link active" to="/siswa">Siswa</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/pelanggaran-siswa">AddDataPelanggaran</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/list-pelanggaran-siswa">ListDataPelanggaran</Link>
                         </li>
                     </ul>
                 </div>
