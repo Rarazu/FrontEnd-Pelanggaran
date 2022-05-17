@@ -6,6 +6,7 @@ import Navbar from "./pages/Navbar";
 import Siswa from "./pages/Siswa";
 import PelanggaranSiswa from "./pages/PelanggaranSiswa";
 import ListPelanggaranSiswa from "./pages/ListPelanggaranSiswa";
+import List from "./pages/List";
 export default function App(){
   return(
     <BrowserRouter>
@@ -17,6 +18,7 @@ export default function App(){
         <Route path="/siswa" element={<Siswa />} />
         <Route path="/pelanggaran-siswa" element={<PelanggaranSiswa />} />
         <Route path="/list-pelanggaran-siswa" element={<ListPelanggaranSiswa />} />
+        <Route path="/list" element={<List/>} />
       </Routes>
     </BrowserRouter>
   )

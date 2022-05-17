@@ -5,6 +5,9 @@ import { Toast } from "bootstrap";
 import { Modal } from "bootstrap";
 
 export default function User() {
+    if(!localStorage.getItem(`token-pelanggaran`)){
+        window.location.href = "/login"
+    }
     let [user, setUser] = useState([])
     let [modal, setModal] = useState(null)
 
